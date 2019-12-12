@@ -7,8 +7,8 @@ class Soldier {
     attack() {
         return this.strength
     }
-    receiveDamage() {
-        this.health -= damage;
+    receiveDamage(damage){
+        this.health = this.health - damage;
     }
   }
   
@@ -18,13 +18,13 @@ class Soldier {
         super(health, strength);
         this.name = name
     }
-    receiveDamage() {
-        this.health -= damage;
-        if(this.health > 0) {
-            return `${name} has received ${damage} points of damage`
+    receiveDamage(damage){
+        this.health -= damage
+        if (this.health > 0){
+            return `${this.name} has received ${damage} points of damage`
         }
-        else if(this.health < 0) {
-            return `${name} has died in the act of combat`;
+        else if (this.health <= 0){
+            return `${this.name} has died in act of combat`
         }
     }
     battleCry() {
@@ -38,12 +38,12 @@ class Soldier {
           super(health, strength);
       }
       receiveDamage() {
-        this.health -= damage;
+        this.health -= this.health - damage;
         if(this.health > 0) {
-            return `${name} has received ${damage} points of damage`
+            return `A Saxon has received ${damage} points of damage`
         }
-        else if(this.health < 0) {
-            return `${name} has died in the act of combat`;
+        else if(this.health <= 0) {
+            return `A Saxon has died in combat`;
         }
       }
   }
